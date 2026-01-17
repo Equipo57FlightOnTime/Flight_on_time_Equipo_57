@@ -32,22 +32,23 @@ Desarrollo de una solución predictiva capaz de estimar si un vuelo va a despega
   - 📓 EDA_FD - 2024  
   - 📓 - - -  
 
-- 📁 Modelos probados  
-  - 📈 Análisis de las pruebas  
-  - 👨🏼‍🔬 Predictive_Model - Andrés  
-    - 📋 flight_risk_delta_bundle.joblib  
-  - 🧑🏽‍💼 Predictive_Model - Diego  
-    - 📋 modelo_flightontime_xgboost_final.pkl  
-  - 👨🏼‍🔬 Preditive_Model - Gustavo  
-    - 📋 - - -  
-  - 👩🏽‍💻 Predictive_Model - Jean  
-    - 📋 - - -
-  - 👨🏼‍🔬 Predictive_Model - Saúl  
-    - 📋 modelo_flightintime_xgboost_final.joblib  
-    - 📋 Saul - William modelo_flightontime_final.pkl  
-    - 📋 Saul - William modelo_flightontime_final.jolib  
-  - 👨🏼‍💻 Predictive_Model - William  
-    - 📋 - - -  
+- 📁 Modelos entrandos y análisis  
+  - 📈 Análisis_de_las_pruebas.md
+  - 📁 Modelos probados 
+    - 👨🏼‍🔬 Predictive_Model - Andrés  
+      - 📋 flight_risk_delta_bundle.joblib  
+    - 🧑🏽‍💼 Predictive_Model - Diego  
+      - 📋 modelo_flightontime_xgboost_final.pkl  
+    - 👨🏼‍🔬 Preditive_Model - Gustavo  
+      - 📋 - - -  
+    - 👩🏽‍💻 Predictive_Model - Jean  
+      - 📋 - - -
+    - 👨🏼‍🔬 Predictive_Model - Saúl  
+      - 📋 modelo_flightintime_xgboost_final.joblib  
+      - 📋 Saul - William modelo_flightontime_final.pkl  
+      - 📋 Saul - William modelo_flightontime_final.jolib  
+    - 👨🏼‍💻 Predictive_Model - William  
+      - 📋 - - -  
 
 - 📁 Siguientes Pasos  
 
