@@ -40,18 +40,35 @@ Desarrollar una solución predictiva capaz de estimar si un vuelo despegará a t
 │   │   └── historico_flight_on_time_2009_2024.parquet
 │
 ├── 📁 notebooks
-│   ├── 📁 eda
-│   │   ├── eda_2009_2018.ipynb
-│   │   ├── eda_2016.ipynb
-│   │   ├── eda_2023_part1.ipynb
-│   │   ├── eda_2023_part2.ipynb
-│   │   └── eda_2024.ipynb
+│   ├── 📁 team
+│   │   ├── 📁 andres
+│   │   │   ├── eda.ipynb
+│   │   │   └── notes.md
+│   │   │
+│   │   ├── 📁 diego
+│   │   │   ├── eda_model.ipynb
+│   │   │   └── notes.md
+│   │   │
+│   │   ├── 📁 gustavo
+│   │   │   ├── eda_model.ipynb
+│   │   │   └── notes.md
+│   │   │
+│   │   ├── 📁 jean
+│   │   │   ├── eda_model.ipynb
+│   │   │   └── notes.md
+│   │   │
+│   │   ├── 📁 saul
+│   │   │   ├── eda_model.ipynb
+│   │   │   └── notes.md
+│   │   │
+│   │   └── 📁 william
+│   │       ├── eda.ipynb
+│   │       └── notes.md
 │   │
-│   ├── 📁 feature_engineering
-│   │   └── feature_engineering.ipynb
-│   │
-│   └── 📁 modeling
-│       └── experiments.ipynb
+│   └── 📁 consolidated
+│       ├── eda_summary.ipynb
+│       ├── feature_engineering_final.ipynb
+│       └── model_comparison.ipynb
 │
 ├── 📁 models
 │   ├── 📁 experiments
@@ -75,8 +92,7 @@ Desarrollar una solución predictiva capaz de estimar si un vuelo despegará a t
 │   ├── project_overview.md
 │   └── next_steps.md
 │
-├── README.md
-└── requirements.txt
+└── README.md
 ```
 ---
 # Resumen del proyecto
