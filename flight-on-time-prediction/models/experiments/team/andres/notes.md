@@ -6,9 +6,9 @@
 
 ## Resultados
 === Test 2023: ARR_DELAY > 15 (DELTA + CatBoost + calibración) ===
-- Accuracy : 0.7815 
-- Precision: 0.5297
-- Recall   : 0.0030
+- Accuracy : 0.6750 
+- Precision: 0.3037
+- Recall   : 0.3768
 - F1       : 0.3363
 
 ## Observaciones
