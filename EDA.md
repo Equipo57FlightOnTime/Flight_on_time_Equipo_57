@@ -112,7 +112,7 @@ RangeIndex: 3000000 entries, 0 to 2999999 Data columns (total 32 columns):
 
 ## Justificación de la modificación de variables
 
-Dada la distribución de las variables numéricas se aplicaron métodos estadísticos para realizar la imputación de nulos. 
+Dada la distribución de las variables numéricas se aplicaron métodos estadísticos para realizar la imputación de valores nulos. 
 
     # Imputación a variables con valores de la moda
     most_frequent_cols = ["ARR_TIME","DEP_TIME"]
@@ -138,7 +138,7 @@ Dada la distribución de las variables numéricas se aplicaron métodos estadís
     
     flight_data[xpl_cols] = xpl_imputer.fit_transform(flight_data[xpl_cols])
 
-Aplicando este método de imputación el siguiente paso consistió en retirar las variables que, a consideración del análisis, no aportarían gran valor al modelo predictivo.
+Tras completar el proceso de imputación, se procedió a la eliminación de las variables que, según los criterios del análisis, carecen de valor predictivo significativo para el modelo.
        
        columns_to_drop = ['CANCELLED',  'CANCELLATION_CODE',  'DOT_CODE','ORIGIN_CITY',  'DEST_CITY',  'TAXI_OUT',  'TAXI_IN','WHEELS_ON',  'WHEELS_OFF',  'DIVERTED']
        # Eliminar las columnas especificadas
@@ -147,20 +147,20 @@ Aplicando este método de imputación el siguiente paso consistió en retirar la
 
 ## Comprensión estadística del modelo
 
-En el siguiente gráfico se muestra la probabilidad e retrasos por hora del día. Lo que revelan los datos es que, las 3:00 am tiene una mayor probabilidad de retrasos con respecto a las demás horas de la madrugada. Asimismo, el horario con menos probabilidad de encontrar retrasos en las salidas de vuelos es entre 5 am, siendo el mejor horario para no encontrar contratiempos en los vuelos. Por encima de la línea del promedio global, A partir de las 13:00 hrs. se detectan los horarios con mayor probabilidad de tener retrasos en la salida de vuelos. En la sima de estos horarios se observa que los horarios con mayor probabilidad se encuentran entre las 18:00 y 20:00.
+El siguiente gráfico ilustra la probabilidad de retrasos según la hora del día. Los datos revelan que las 3:00 AM presentan una mayor incidencia de demoras en comparación con el resto de la madrugada. En contraste, el horario con menor probabilidad de interrupciones es a las 5:00 AM, consolidándose como la ventana operativa más estable. A partir de las 13:00 hrs, la tendencia supera el promedio global, alcanzando su punto máximo (cima) entre las 18:00 y las 20:00 hrs, donde se concentran los mayores índices de retraso.
 
 <img width="1021" height="559" alt="Image" src="https://github.com/user-attachments/assets/08ea62fa-a7d2-4a88-b4d4-1a2d3937c63d" />
 
-En el análisis estadístico se detectaron cinco de las principales causas de retrasos en vuelos domésticos en los aeropuertos de la región estadounidense. En el siguiente gráfico se expresa la afectación total en minutos que representa cada una de estas causas. A partir de esta información se observa que las afectaciones en la llegada de los aviones a los aeropuertos (DELAY_DUE_LATE_AIRCRAFT) y las operaciones al interior de los aeropuertos (DELAY_DUE_CARRIER) juegan un papel crucial en el tiempo de retrasos.
+El análisis estadístico permitió identificar las cinco causas principales de demora en los vuelos domésticos dentro de los Estados Unidos. El siguiente gráfico ilustra el impacto total en minutos acumulados por cada categoría. A partir de estos datos, se observa que los retrasos derivados de la llegada tardía de aeronaves (DELAY_DUE_LATE_AIRCRAFT) y las incidencias operativas de las aerolíneas (DELAY_DUE_CARRIER) son los factores más determinantes en el tiempo total de demora.
 
 <img width="977" height="590" alt="Image" src="https://github.com/user-attachments/assets/122aa245-582d-46d6-9f78-7c21282fa9d9" />
 
-Por último, es importante mencionar que del total de vuelos registrados, alrededor del del 18% presentó tiempos de retraso tanto en la salida del vuelo como en su llegada. Esto, en efecto, representa una atenuante para los algoritmos de predicción. En este sentido, se comentó la necesidad de balancear las clases en caso de que el algoritmo así lo requiera.
+Finalmente, cabe destacar que aproximadamente el 18% de la muestra total registró retrasos concurrentes tanto en la salida como en la llegada. Esta proporción evidencia un marcado desbalance en la variable objetivo, lo cual representa un desafío crítico para el entrenamiento de los modelos. En consecuencia, se identificó la necesidad de implementar técnicas de balanceo de clases (como oversampling o undersampling) para optimizar el rendimiento de los algoritmos de predicción.
 
 <img width="640" height="658" alt="Image" src="https://github.com/user-attachments/assets/35c8d2b0-bd7c-4488-9e33-d8a14fc8ea43" />
 
 ## Análisis de correlación
-Con el objetivo de comprender la relación de las variables de estudio, se realizaron dos análisis de correlación. A partir de esta información se hallaron las variables predictivas del modelo.
+Con el propósito de identificar las dependencias entre las variables de estudio, se llevaron a cabo análisis de correlación. Los resultados permitieron determinar la fuerza de estas relaciones y seleccionar las variables con mayor poder explicativo para la fase de modelado predictivo.
 
 <img width="625" height="528" alt="Image" src="https://github.com/user-attachments/assets/cb6dc9eb-df58-4950-99ee-75aa04748315" />
 
