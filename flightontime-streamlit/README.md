@@ -75,29 +75,6 @@ La aplicación se abrirá automáticamente en tu navegador en: `http://localhost
 - 🟡 Amarillo (30-70%): Probabilidad media
 - 🔴 Rojo (70-100%): Alta probabilidad de retraso
 
-## 🔧 Configuración
-
-### Cambiar la URL de la API
-
-Edita `app.py` línea 114:
-
-```python
-API_URL = "http://localhost:8080/predict"
-```
-
-### Personalizar Colores
-
-Los colores están definidos en el CSS dentro de `app.py` (líneas 18-106). Puedes modificar:
-
-```python
-# Gradientes principales
-background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
-
-# Colores de estado
-"#10b981"  # Verde (éxito)
-"#ef4444"  # Rojo (error)
-"#f59e0b"  # Amarillo (advertencia)
-```
 
 ## 📋 Formato de los CSV
 
@@ -209,70 +186,6 @@ Streamlit es automáticamente responsive y funciona en:
 - 📱 Tablets  
 - 📱 Móviles
 
-## 🚀 Deploy en Producción
-
-### Opción 1: Streamlit Cloud (GRATIS)
-
-1. Sube tu proyecto a GitHub
-2. Ve a [share.streamlit.io](https://share.streamlit.io)
-3. Conecta tu repositorio
-4. ¡Deploy automático!
-
-### Opción 2: Docker
-
-```dockerfile
-FROM python:3.10-slim
-
-WORKDIR /app
-
-COPY requirements.txt .
-RUN pip install -r requirements.txt
-
-COPY . .
-
-EXPOSE 8501
-
-CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
-```
-
-Construir y ejecutar:
-```bash
-docker build -t flightontime-streamlit .
-docker run -p 8501:8501 flightontime-streamlit
-```
-
-## 🎓 Tips para la Demo del Hackathon
-
-### 1. **Muestra el código en vivo**
-Streamlit permite editar y ver cambios en tiempo real (modo `--watch`):
-```bash
-streamlit run app.py --watch
-```
-
-### 2. **Destaca las características**
-- Sidebar con estado de conexión
-- Gráfico gauge interactivo
-- Validaciones en tiempo real
-- Manejo de errores elegante
-
-### 3. **Prepara casos de uso**
-- ✅ Vuelo puntual (mañana, lunes)
-- ❌ Vuelo retrasado (tarde, viernes)
-- ⚠️ Error de validación (mismo origen/destino)
-
-### 4. **Compara con el HTML**
-Muestra ambas interfaces y explica:
-- Streamlit: Rápido para prototipado, ideal para DS
-- HTML: Más control, ideal para producción
-
-## 📊 Estadísticas del Proyecto
-
-- **Líneas de código:** ~400
-- **Tiempo de desarrollo:** ~30 minutos
-- **Dependencias:** 4
-- **Archivos:** 4
-- **Tamaño:** < 1 MB
-
 ## 🔗 Recursos Adicionales
 
 - [Documentación de Streamlit](https://docs.streamlit.io)
@@ -280,13 +193,6 @@ Muestra ambas interfaces y explica:
 - [Plotly Charts](https://plotly.com/python/)
 - [Componentes de Streamlit](https://streamlit.io/components)
 
-## 📞 Soporte
-
-Si tienes problemas:
-1. Verifica que las dependencias estén instaladas
-2. Confirma que Spring Boot esté corriendo
-3. Revisa los logs en la consola de Streamlit
-4. Verifica que los CSVs estén en la carpeta correcta
 
 ## 📄 Licencia
 
@@ -294,4 +200,3 @@ Proyecto académico para el Hackathon FlightOnTime.
 
 ---
 
-**¡Disfruta tu aplicación Streamlit! 🎉**
