@@ -22,6 +22,7 @@ Desarrollar una solución predictiva capaz de estimar si un vuelo despegará a t
 ---
 ## Estructura del Proyecto
 ```
+
 📦 flight-on-time-prediction
 │
 ├── 📁 backend
@@ -70,6 +71,15 @@ Desarrollar una solución predictiva capaz de estimar si un vuelo despegará a t
 │   └── Contrato-Integracion.ipynb
 │
 └── README.md
+
+
+📦 flightontime-streamlit
+├── aerolineas.csv
+├── aeropuertos.csv
+├── app.py
+├── requirements.txt
+└── README.md
+
 ```
 ---
 # Resumen del proyecto
