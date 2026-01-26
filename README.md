@@ -26,49 +26,16 @@ Desarrollar una solución predictiva capaz de estimar si un vuelo despegará a t
 │
 ├── 📁 backend
 │   └── 📁 dictionaries
-│       ├── airport_iata_coords.csv
-│       └── diccionario_variables_2009_2023.csv
+│       ├── aerolineas.csv
+│       ├── rutas_validas.csv
+│       └── aeropuertos.csv
 │
 ├── 📁 data
 │   ├── 📁 raw
-│   │   ├── airline_delay_2009_2018.csv
-│   │   ├── flight_delay_2019_2023.csv
-│   │   └── flight_data_2024.csv
+│   │   └── README.md
 │   │
-│   ├── 📁 processed
-│   │   ├── flights_2016.parquet
-│   │   └── historico_flight_on_time_2009_2024.parquet
-│
-├── 📁 notebooks
-│   ├── 📁 team
-│   │   ├── 📁 andres
-│   │   │   ├── eda.ipynb
-│   │   │   └── notes.md
-│   │   │
-│   │   ├── 📁 diego
-│   │   │   ├── eda_model.ipynb
-│   │   │   └── notes.md
-│   │   │
-│   │   ├── 📁 gustavo
-│   │   │   ├── eda_model.ipynb
-│   │   │   └── notes.md
-│   │   │
-│   │   ├── 📁 jean
-│   │   │   ├── eda_model.ipynb
-│   │   │   └── notes.md
-│   │   │
-│   │   ├── 📁 saul
-│   │   │   ├── eda_model.ipynb
-│   │   │   └── notes.md
-│   │   │
-│   │   └── 📁 william
-│   │       ├── eda.ipynb
-│   │       └── notes.md
-│   │
-│   └── 📁 consolidated
-│       ├── eda_summary.ipynb
-│       ├── feature_engineering_final.ipynb
-│       └── model_comparison.ipynb
+│   └── 📁 processed
+│       └── README.md
 │
 ├── 📁 models
 │   ├── 📁 experiments
@@ -80,17 +47,27 @@ Desarrollar una solución predictiva capaz de estimar si un vuelo despegará a t
 │   │   └── william/
 │   │
 │   └── 📁 production
-│       ├── model_xgboost_final.pkl
+│       ├── modelo_flightontime_xgboost_final.pkl
+│       ├── notes.md
 │       └── model_metadata.json
 │
-├── 📁 reports
-│   ├── eda_summary.md
-│   ├── model_evaluation.md
-│   └── conclusions.md
+├── 📁 notebooks
+│   ├── 📁 team
+│   │   ├── andres/
+│   │   ├── diego/
+│   │   ├── gustavo/
+│   │   ├── jean/
+│   │   ├── saul/
+│   │   └── william/
+│   │
+│   └── 📁 consolidated
+│       ├── eda_summary.ipynb
+│       ├── feature_engineering_final.ipynb
+│       └── model_comparison.ipynb
+│
 │
 ├── 📁 docs
-│   ├── project_overview.md
-│   └── next_steps.md
+│   └── Contrato-Integracion.ipynb
 │
 └── README.md
 ```
