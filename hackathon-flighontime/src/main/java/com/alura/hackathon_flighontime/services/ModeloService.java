@@ -1,17 +1,21 @@
 package com.alura.hackathon_flighontime.services;
 
+import java.time.LocalDateTime;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.alura.hackathon_flighontime.dtos.DatosVuelo;
 import com.alura.hackathon_flighontime.dtos.FlightPredictionRequestDTO;
 import com.alura.hackathon_flighontime.dtos.FlightPredictionResponseDTO;
 import com.alura.hackathon_flighontime.exceptions.ValidarException;
 import com.alura.hackathon_flighontime.models.Aerolinea;
 import com.alura.hackathon_flighontime.models.Aeropuerto;
+import com.alura.hackathon_flighontime.models.Prediction;
 import com.alura.hackathon_flighontime.models.Vuelo;
 import com.alura.hackathon_flighontime.services.consumo.ConsumoAPI;
 import com.alura.hackathon_flighontime.services.consumo.ConvertirDatos;
 import com.alura.hackathon_flighontime.services.consumo.IConvertirDatos;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 @Service
 public class ModeloService {
@@ -31,7 +35,7 @@ public class ModeloService {
     private PredictionService predictionService;
     
     @Autowired
-    private RutaService rutaService; // ⭐ NUEVO
+    private RutaService rutaService; // NUEVO
 
     public FlightPredictionResponseDTO enviarRequest(FlightPredictionRequestDTO requestDTO) {
 
@@ -61,14 +65,14 @@ public class ModeloService {
             throw new ValidarException("El Aeropuerto de Destino no está registrado.");
         }
 
-        // ⭐ Validación 4: La ruta existe
+        //  Validación 4: La ruta existe
         if (!rutaService.existeRuta(iata_origen, iata_destino)) {
             throw new ValidarException(
                 "No existe ninguna ruta de vuelos entre " + iata_origen + " y " + iata_destino + "."
             );
         }
 
-        // ⭐ Validación 5: La aerolínea opera la ruta
+        //  Validación 5: La aerolínea opera la ruta
         if (!rutaService.aerolineaOperaRuta(iata_aerolinea, iata_origen, iata_destino)) {
             throw new ValidarException(
                 "La aerolínea " + iata_aerolinea + " no opera vuelos en la ruta " + 
@@ -98,6 +102,21 @@ public class ModeloService {
         String json = conversion.objetoAString(vueloRequest);
         String response = ConsumoAPI.getPrediction(FASTAPI_URL, json);
 
-        return conversion.jsonAObjeto(response, FlightPredictionResponseDTO.class);
+        //  Obtener la respuesta de predicción
+        FlightPredictionResponseDTO predictionResponse = conversion.jsonAObjeto(response, FlightPredictionResponseDTO.class);
+
+        //  Guardar el vuelo primero
+        vueloService.save(vuelo);
+
+        //  Guardar la predicción en base de datos
+        Prediction prediction = new Prediction();
+        prediction.setPrevision(predictionResponse.prevision());
+        prediction.setProbabilidad(predictionResponse.probabilidad());
+        prediction.setFecha(LocalDateTime.now());
+        prediction.setVuelo(vuelo);
+
+        predictionService.save(prediction);
+
+        return predictionResponse;
     }
 }
